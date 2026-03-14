@@ -1,0 +1,123 @@
+// Task 1: Number Analysis App
+// Name: Getamesay Hailemichael
+// Student ID: ATE/5152/13
+
+// Function to find maximum value
+int findMax(List<int> numbers) {
+  int max = numbers[0];
+
+  for (int n in numbers) {
+    if (n > max) {
+      max = n;
+    }
+  }
+
+  return max;
+}
+
+// Function to find minimum value
+int findMin(List<int> numbers) {
+  int min = numbers[0];
+
+  for (int n in numbers) {
+    if (n < min) {
+      min = n;
+    }
+  }
+
+  return min;
+}
+
+// Function to calculate sum
+int calculateSum(List<int> numbers) {
+  int sum = 0;
+
+  for (int n in numbers) {
+    sum += n;
+  }
+
+  return sum;
+}
+
+// Function to calculate average
+double calculateAverage(List<int> numbers) {
+  int sum = calculateSum(numbers);
+  return sum / numbers.length;
+}
+
+void main() {
+
+  final numbers = <int>[34, -7, 89, 12, -45, 67, 3, 100, -2, 55];
+
+  int max = findMax(numbers);
+  int min = findMin(numbers);
+  int sum = calculateSum(numbers);
+  double avg = calculateAverage(numbers);
+
+  print("Number Analysis Results");
+  print("========================");
+  print("Numbers: $numbers");
+  print("Maximum value : $max");
+  print("Minimum value : $min");
+  print("Sum           : $sum");
+  print("Average       : $avg");
+}
+
+/*
+====================================================
+Conceptual Questions
+====================================================
+
+Q1. What is the difference between List<int> and List<dynamic>?
+
+A List<int> is a typed list that only stores integer values.
+A List<dynamic> can store any type of value such as integers,
+strings, or objects.
+
+Using List<int> is better because it provides type safety.
+The Dart compiler can detect errors earlier if a wrong data
+type is added to the list.
+
+
+Q2. Why initialize max with the first element?
+
+The maximum variable should start with the first element
+because it ensures the comparison starts with a real value
+from the list.
+
+If we initialize it with 0 or a very small number, the result
+may be incorrect when the list contains only negative numbers.
+
+
+Q3. Why call calculateSum() inside calculateAverage()?
+
+This demonstrates the principle of code reuse and modular
+programming.
+
+Reusing functions avoids duplicating logic and makes the code
+easier to maintain and modify.
+
+
+Q4. What does the for-in loop do?
+
+The for-in loop iterates through each element in a list
+directly.
+
+Example:
+for (int n in numbers)
+
+It retrieves each value from the list one by one without
+using an index.
+
+A traditional for loop uses an index variable, while the
+for-in loop directly accesses values.
+
+
+Q5. What happens if findMax() receives an empty list?
+
+The program would crash because numbers[0] does not exist.
+
+To prevent this, we can check if the list is empty before
+accessing the first element and return an error message
+or default value.
+*/
